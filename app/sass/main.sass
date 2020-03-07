@@ -1,0 +1,990 @@
+@import vars
+@import fonts
+@import libs
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+textarea:focus
+	&::-webkit-input-placeholder
+		color: transparent!important
+	&::-moz-placeholder
+		color: transparent!important
+	&::-ms-input-placeholder
+		color: transparent!important
+input:focus
+	&::-webkit-input-placeholder
+		color: transparent!important
+	&::-moz-placeholder
+		color: transparent!important
+	&::-ms-input-placeholder
+		color: transparent!important
+
+html
+	-ms-overflow-style: none
+	scrollbar-width: none
+	&::-webkit-scrollbar
+		width: 0
+	&::-webkit-scrollbar
+		width: 0
+
+
+html
+  overflow: scroll
+  overflow-x: hidden
+::-webkit-scrollbar
+  width: 0px
+
+.back_to_top.active
+	transform: translateX(0)
+
+.back_to_top
+	position: fixed
+	bottom: 80px
+	left: 40px
+	transform: translateX(-100px)
+	transition: all 0.5s ease-in-out
+	img
+		width: 58px
+		height: 58px
+		cursor: pointer
+		opacity: .5
+		transition: opacity .3s ease
+		&:hover
+			opacity: 1
+body
+	font-size: 19px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $font
+	overflow-x: hidden
+	color: $text
+
+h1, .h1
+	font-size: 34px
+	font-weight: bold
+	color: #fff
+	line-height: 40px
+
+.container
+	max-width: 1170px
+	padding:
+		right: $gutter/2
+		left: $gutter/2
+	margin:
+		left: auto
+		right: auto
+	+media-breakpoint-down(md)
+		padding:
+			right: 10px
+			left: 10px
+
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+
+// HEADER
+.header__mobile
+	display: none
+	font-size: 30px
+	position: absolute
+	top: 15px
+	right: 15px
+	cursor: pointer
+	+media-breakpoint-down(lg)
+		display: block
+.header
+	&__inner
+		display: flex
+		justify-content: space-between
+	&__logo
+		img
+			margin-top: 35px
+			+media-breakpoint-down(lg)
+				width: 85px!important
+				margin-right: 10px
+	&__info
+		+media-breakpoint-down(lg)
+			padding-right: 50px
+	&__top
+		margin-top: 23px
+		display: flex
+		justify-content: flex-end
+		align-items: center
+		color: $light-gray
+		+media-breakpoint-down(lg)
+			flex-direction: column
+			justify-content: flex-start
+			align-items: flex-start
+	&__location
+		font-weight: bold
+		font-size: 9px
+		display: flex
+		align-items: center
+		margin-right: 42px
+		+media-breakpoint-down(lg)
+			margin-right: 0
+		a
+			color: #949292
+			cursor: pointer
+			&:hover
+				text-decoration: none
+		img
+			width: 18px
+			height: 18px
+			margin-right: 10px
+	&__phone
+		font-weight: bold
+		font-size: 9px
+		display: flex
+		align-items: center
+		margin-right: 42px
+		+media-breakpoint-down(lg)
+			margin: 5px 0 0px 0
+			font-size: 13px
+		a
+			color: #949292
+			&:hover
+				text-decoration: none
+
+		img
+			width: 18px
+			height: 18px
+			margin-right: 10px
+	&__search
+		form
+			position: relative
+		input
+			height: 18px
+			padding-left: 14px
+			width: 118px
+			font-size: 10px
+			border: 1px solid $light-gray
+			color: $light-gray
+			margin-bottom: 10px
+			&::placeholder
+				font-size: 10px
+				color: #aeaeae
+	&__search-submit
+		position: absolute
+		top: 8px
+		right: 0
+		width: 20px
+		height: 20px
+		background-color: transparent
+		bottom: 0
+		outline: none!important
+		box-shadow: 0
+		font-size: 12px
+		color: $light-gray
+.logo
+		img
+			width: 170px
+.menu.active
+	display: block!important			
+.menu
+	+media-breakpoint-down(lg)
+		display: none
+		position: absolute
+		top: 22px
+		right: 14px
+		height: auto
+		background: #fff
+		z-index: 1000
+	&__list
+		display: flex
+		list-style-type: none
+		font-weight: bold
+		margin-bottom: 5px
+		+media-breakpoint-down(lg)
+			flex-direction: column
+			padding: 0px 20px 20px 20px
+	&__item
+		margin-right: 35px 
+		&:nth-child(1)
+			+media-breakpoint-down(lg)
+				border-bottom: 0
+		&:last-child
+			margin-right: 0
+			+media-breakpoint-down(lg)
+				border-bottom: 0
+		+media-breakpoint-down(lg)
+			border-bottom: 1px solid $light-gray
+			margin-right: 0
+	&__item--close
+		display: none
+		margin-right: -15px
+		.fa
+			float: right
+			font-size: 30px
+			cursor: pointer
+		+media-breakpoint-down(lg)
+			display: block
+	&__link
+		font-size: 22px
+		color: #6b6969
+		transition: .3s ease all
+		&:hover
+			color: lighten(#6b6969, 10%)
+			text-decoration: none
+
+// PROMO
+.promo
+	max-width: 1318px
+	margin: 0 auto
+	.slider
+		.slide
+			position: relative
+			&__text
+				position: absolute
+				left: 0
+				bottom: 30px
+				.h1
+					max-width: 440px
+					background: #000
+					padding: 26px 30px 10px 20px
+					+media-breakpoint-down(md)
+						font-size: 20px
+						line-height: 25px
+						padding: 15px
+						background: rgba(0,0,0, .8)
+			img
+				width: 100%
+				object-fit: cover
+				+media-breakpoint-down(md)
+					min-height: 400px
+	.slick-dots
+		position: absolute
+		width: 100px
+		bottom: -5px
+		left: 50%
+		margin-left: -50px
+		display: flex
+		width: 100%
+		.slick-active
+			&:after
+				display: none
+		li
+			margin-right: 8px
+			list-style-type: none
+			width: 8px
+			height: 8px
+			border-radius: 10em
+			background: #fff
+			position: relative
+			cursor: pointer
+			&:after
+				content: ''
+				width: 2px
+				height: 2px
+				background: #403935
+				position: absolute
+				top: 3px
+				left: 3px
+			button
+				display: none
+
+// SECTION01
+.sect01
+	margin-top: 40px
+	+media-breakpoint-down(md)
+		margin-top: 20px
+	&__content
+		position: relative
+		img
+			width: 100%
+			+media-breakpoint-down(md)
+				height: 400px
+				object-fit: cover
+	&__text
+		background: #fff
+		max-width: 314px
+		position: absolute
+		padding: 16px 70px 8px 30px
+		right: 134px
+		bottom: 0
+		color: #2e2624
+		+media-breakpoint-down(md)
+			padding: 5px 10px 5px 10px
+			max-width: 100%
+			right: 0
+			background: rgba(255,255,255,.9)
+		a
+			color: #2e2624
+			&:hover
+				text-decoration: none
+	&__title
+		font-weight: bold
+		font-size: 30px
+		line-height: 34px
+		+media-breakpoint-down(md)
+			font-size: 20px
+			line-height: 25px
+			padding: 15px
+	&__desc
+		font-size: 15px
+		line-height: 18px
+		margin-top: 10px
+	&__plus
+		font-size: 30px
+		line-height: 34px
+		font-weight: bold
+
+// SECTION02
+.sect02
+	margin-top: 40px
+	+media-breakpoint-down(md)
+		margin-top: 20px
+	&__inner
+		display: flex
+		justify-content: space-between
+		+media-breakpoint-down(md)
+			flex-direction: column-reverse
+	&__bg
+		width: calc(100% / 3)
+		position: relative
+		margin-right: 30px
+		+media-breakpoint-down(md)
+			width: 100%
+			height: 200px
+		img
+			width: 100%
+			height: 100%
+			+media-breakpoint-down(md)
+				object-fit: cover
+	&__bg-text
+		position: absolute
+		top: 30px
+		left: 20px
+		color: #fff
+	&__bg-title
+		font-size: 19px
+		line-height: 22px
+		font-weight: bold
+	&__bg-desc
+		font-size: 12px
+		line-height: 15px
+	&__room
+		width: calc((100% / 3) + (100% / 3))
+		position: relative
+		+media-breakpoint-down(md)
+			width: 100%
+		img
+			width: 100%
+			+media-breakpoint-down(md)
+				height: 400px
+				object-fit: cover
+	&__room-text
+		position: absolute
+		left: 0
+		bottom: 0
+		background: #000
+		max-width: 310px
+		color: #fff
+		padding: 36px 45px 15px 25px
+		+media-breakpoint-down(md)
+			padding: 5px 10px 5px 10px
+			max-width: 100%
+			right: 0
+			background: rgba(0, 0, 0, .9)
+		a
+			color: #fff
+			text-decoration: none
+	&__room-title
+		font-weight: bold
+		font-size: 30px
+		line-height: 34px
+		+media-breakpoint-down(md)
+			font-size: 20px
+			line-height: 25px
+			padding: 15px 0 0px 15px
+	&__room-desc
+		font-size: 15px
+		line-height: 18px
+		margin-top: 15px
+	&__room-plus
+		font-size: 30px
+		font-weight: bold
+		line-height: 34px
+		margin-top: 5px
+
+
+// SECTION03
+.sect03
+	margin-top: 40px
+	+media-breakpoint-down(md)
+		margin-top: 20px
+	&__content
+		position: relative
+		img
+			width: 100%
+			+media-breakpoint-down(md)
+				height: 400px
+				object-fit: cover
+	&__text
+		background: #fff
+		max-width: 455px
+		position: absolute
+		padding: 16px 40px 8px 30px
+		left: 0
+		bottom: 25px
+		color: #2e2624
+		+media-breakpoint-down(md)
+			padding: 5px 10px 5px 10px
+			max-width: 100%
+			right: 0
+			background: rgba(255, 255, 255, .9)
+		a
+			color: #2e2624
+			&:hover
+				text-decoration: none
+	&__title
+		font-weight: bold
+		font-size: 30px
+		line-height: 34px
+		+media-breakpoint-down(md)
+			font-size: 20px
+			line-height: 25px
+			padding: 15px
+	&__desc
+		font-size: 15px
+		line-height: 18px
+		margin-top: 10px
+		max-width: 300px
+	&__plus
+		font-size: 30px
+		line-height: 34px
+		font-weight: bold
+
+// MAP
+.map
+	margin-top: 120px
+	+media-breakpoint-down(md)
+	 margin-top: 20px
+	&__info
+		display: flex
+		justify-content: center
+		align-items: flex-end
+		+media-breakpoint-down(lg)
+			flex-direction: column
+			justify-content: center
+			align-items: center
+	&__img
+		display: flex
+		align-items: flex-end
+		font-size: 22px
+		text-transform: uppercase
+		line-height: 38px
+		margin-right: 60px
+		margin-bottom: 30px
+		+media-breakpoint-down(lg)
+			margin-right: 0
+		img
+			width: 128px
+			margin-right: 60px
+			+media-breakpoint-down(lg)
+				width: 100px
+				margin-right: 10px
+	&__selectize
+		width: 210px
+		height: 40px
+		position: relative
+		margin-right: 25px
+		+media-breakpoint-down(lg)
+			margin-right: 0
+			margin-bottom: 20px
+		.selectize-dropdown, .selectize-input, .selectize-input input
+			color: #b4b4b4!important
+
+	&__btn
+		width: 210px
+		height: 40px
+		line-height: 40px
+		background-color: #121212
+		a
+			color: #d4d4d4
+			display: flex
+			justify-content: center
+			align-items: center
+			text-decoration: none
+			font-size: 16px
+	&__map
+		margin-top: 20px
+		img
+			width: 100%
+			object-fit: cover
+			min-height: 400px
+.selectize-control.single .selectize-input::after
+	content: '\f078'
+	font-family: FontAwesome
+	color: #151515 
+	border: 0
+	top: 11px
+	right: 20px
+.selectize-control.single .input-active::after
+	content: '\f077'
+
+
+// FOOTER
+.footer
+	height: 84px
+	background-color: #303131
+	+media-breakpoint-down(lg)
+		height: auto
+	&__inner
+		display: flex
+		justify-content: space-between
+		+media-breakpoint-down(lg)
+			flex-direction: column
+			justify-content: center
+			text-align: center
+	&__logo
+		padding-top: 20px
+		img
+			width: 130px
+	&__info
+		display: flex
+		padding-top: 25px
+		+media-breakpoint-down(lg)
+			flex-direction: column
+	&__location
+		color: #fff
+		margin-right: 44px
+		+media-breakpoint-down(lg)
+			margin-right: 0
+		a
+			color: #fff
+			font-size: 16px
+			font-weight: bold
+			margin-right: 15px
+			&:hover
+				text-decoration: none
+		.fa
+			font-size: 14px
+		img
+			width: 30px
+			height: 30px
+			margin-right: 28px
+	&__phone
+		margin-right: 60px
+		+media-breakpoint-down(lg)
+			margin-right: 0
+		a
+			color: #fff
+			font-size: 16px
+			font-weight: bold
+			margin-right: 15px
+			&:hover
+				text-decoration: none
+		img
+			width: 30px
+			height: 30px
+			margin-right: 20px
+	&__search
+		color: #fff
+		position: relative
+		max-width: 155px
+		margin: 0 auto
+		.fa
+			opacity: .5
+		form
+			position: relative
+		input
+			height: 25px
+			padding-left: 14px
+			width: 155px
+			font-size: 10px
+			border: 1px solid $light-gray
+			color: $light-gray
+			margin-bottom: 10px
+			background-color: #303131
+			border-radius: 3px
+			&::placeholder
+				font-size: 12px
+				color: #fff
+	&__search-submit
+		position: absolute
+		top: 8px
+		right: 0
+		width: 20px
+		height: 20px
+		background-color: transparent
+		bottom: 0
+		outline: none!important
+		box-shadow: 0
+		font-size: 12px
+		color: #fff
+
+// MODAL
+#my-modal
+	display: block
+.modal-header
+	transition: all .3s ease		
+	text-align: center
+	&__quest
+		margin-top: 30px
+	&__city
+		font-size: 40px
+		line-height: 44px
+		margin-top: 10px
+		font-weight: bold
+	&__btn
+		width: 210px
+		height: 40px
+		line-height: 40px
+		background-color: #121212
+		margin: 20px auto 20px auto
+		display: block
+		cursor: pointer
+		transition: .5s ease all
+		&:hover
+			background-color: lighten(#121212, 10%)
+		a
+			color: #fff
+			&:hover
+				text-decoration: none
+	&__other
+		padding: 30px 0
+.modal-body
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	padding: 50px 30px 20px 30px
+	height: 280px
+	overflow: hidden
+	z-index: 1000000
+	position: relative
+	&__item
+		width: 25%
+		display: flex
+		align-items: center
+		font-size: 14px
+		line-height: 16px
+		margin-bottom: 30px
+		+media-breakpoint-down(md)
+			width: 100%
+		a
+			color: $light-gray
+	img
+		width: 30px
+		height: 30px
+		margin-right: 10px
+
+.modal-footer
+	padding: 20px 0
+	.modal-footer__close
+		display: none
+	a
+		color: #fff
+.modal-footer.active
+	.modal-footer__open
+		display: none!important
+	.modal-footer__close
+		display: block
+#close-btn
+	margin-top: -15px
+.modal-content
+	+media-breakpoint-down(md)
+		width: 100%
+
+
+// MAIN
+.main
+	margin-top: 80px
+	+media-breakpoint-down(lg)
+	margin-top: 10px
+	&__top-inner
+		display: flex
+		font-size: 10px
+	&__back
+		color: #737373
+		font-weight: bold
+		.fa
+			margin-right: 5px
+		&:hover
+			color: #737373
+	&__breadcrumb
+		display: flex
+		list-style-type: none
+		margin-bottom: 0
+		padding-left: 15px
+		li
+			&:last-child
+				&:after
+					content: ''
+			&:after
+				content: '/'
+				margin: 0 5px
+			a
+				color: #737373
+				font-weight: bold
+			span
+				color: #737373
+				font-weight: bold
+
+.card
+	margin-top: 20px
+	&__inner
+		display: flex
+		+media-breakpoint-down(md)
+			flex-direction: column
+			justify-content: center
+			align-items: center
+	&__slide
+		img
+			width: 100%
+	&__slider
+		max-width: 652px
+		margin-right: 30px
+		+media-breakpoint-down(md)
+			margin-right: 0
+			max-width: 100%
+		.slick-dots
+			display: flex
+			justify-content: space-between
+			margin-top: 36px
+			list-style-type: none
+			padding-left: 0
+			+media-breakpoint-down(md)
+				margin-top: 10px
+			.slick-active
+				opacity: 1
+			li
+				cursor: pointer
+				opacity: .7
+				transition: opacity .3s ease
+				width: 194px
+				height: 130px
+				+media-breakpoint-down(md)
+					width: calc(100% / 3)
+					height: 100px
+					margin-right: 5px
+			li:nth-child(1)
+				background: url('../img/@2x/microcement02.jpg') no-repeat
+				background-position: center center
+				border: 1px solid $text
+			li:nth-child(2)
+				background: url('../img/@2x/microcement03.jpg') no-repeat
+				background-position: center center
+				background-size: cover
+			li:nth-child(3)
+				background: url('../img/@2x/microcement04.jpg') no-repeat
+				background-position: center center
+				background-size: cover
+				+media-breakpoint-down(md)
+					margin-right: 0
+			button
+				display: none
+	&__info
+	&__title
+		.h1
+			color: $text
+			font-size: 28px
+			line-height: 34px
+			max-width: 300px
+			margin-top: -7px
+			margin-bottom: 40px
+			+media-breakpoint-down(md)
+				text-align: center
+				font-size: 20px
+				line-height: 25px
+				margin: 0 auto 15px auto
+	&__content
+		font-size: 19px
+		line-height: 28px
+		+media-breakpoint-down(md)
+			font-size: 15px
+			line-height: 18px
+	&__primary
+		margin-top: 70px
+		font-size: 15px
+		+media-breakpoint-down(md)
+			margin-top: 20px
+		b
+			display: block
+		span
+			display: block
+			padding-left: 20px
+			text-transform: uppercase
+	&__btn
+		display: block
+		background-color: #000
+		color: #fff!important
+		width: 100%
+		text-align: center
+		padding: 5px 10px
+		cursor: pointer
+		transition: .3s ease all
+		margin-top: 70px
+		text-transform: uppercase
+		font-size: 15px
+		+media-breakpoint-down(md)
+			margin-top: 20px
+		&:hover
+			background-color: lighten(#000, 10%)
+		.fa
+			margin-right: 15px
+			font-size: 17px
+
+// MANUAL
+.manual
+	margin-top: 80px
+	+media-breakpoint-down(md)
+		margin-top: 20px
+	&__video
+		iframe
+			+media-breakpoint-down(md)
+				height: 300px
+	&__title
+		.h2
+			text-transform: uppercase
+			font-size: 28px
+			+media-breakpoint-down(md)
+				font-size: 20px
+				line-height: 25px
+	&__desc
+		text-transform: uppercase
+		font-weight: bold
+		font-size: 19px
+		margin-bottom: 10px
+		+media-breakpoint-down(md)
+			font-size: 17px
+			line-height: 20px
+	&__inner
+		display: flex
+		margin-top: 50px
+		+media-breakpoint-down(md)
+			margin-top: 20px
+			flex-direction: column-reverse
+			align-items: center
+	&__description
+		width: 60%
+		+media-breakpoint-down(md)
+			width: 100%
+	&__desc-title
+		text-transform: uppercase
+		font-weight: bold
+		+media-breakpoint-down(md)
+			text-align: center
+			margin-top: 20px
+	&__list
+		padding: 20px 30px 140px 0
+		border-right: 1px solid #b8b8b8
+		+media-breakpoint-down(md)
+			padding: 0
+			border-right: 0
+		ul
+			padding-left: 0
+			list-style-type: none
+		li
+			margin-bottom: 30px
+			+media-breakpoint-down(md)
+				font-size: 15px
+				line-height: 18px
+				margin-bottom: 15px
+	&__icons
+		text-align: center
+		width: 40%
+		+media-breakpoint-down(md)
+			width: 100%
+	&__icons-title
+		text-transform: uppercase
+		font-weight: bold
+	&__icons-inner
+		display: flex
+		flex-direction: column
+	&__item
+		text-align: left
+		padding-left: 100px
+		margin-top: 60px
+		+media-breakpoint-down(md)
+			padding-left: 0
+			width: 200px
+			margin: 15px auto 0 auto
+
+// FAQ
+.faq
+	margin-top: 20px
+	+media-breakpoint-down(md)
+		font-size: 15px
+		line-height: 18px
+	&__title
+		text-transform: uppercase
+		font-size: 27px
+		font-weight: bold
+	&__content
+		b
+			display: block
+			+media-breakpoint-down(md)
+				margin-top: 15px
+		i
+			display: block
+			+media-breakpoint-down(md)
+				margin-top: 5px
+
+.footer--main
+	margin-top: 100px
+	padding-bottom: 15px
+	height: auto
+	background-color: #fff
+	+media-breakpoint-down(md)
+		margin-top: 20px
+	.footer__logo
+		padding-left: 50px
+		padding-top: 0
+		+media-breakpoint-down(md)
+			padding-left: 0
+	.selectize-dropdown
+		top: -205px!important
+	.footer__info
+		padding-top: 0
+		justify-content: space-between
+	.footer__location
+		display: none
+	.map__selectize
+		width: 160px
+		height: 23px
+	.selectize-control.single .selectize-input::after
+		top: 5px
+		right: 15px
+	.selectize-input
+		font-size: 8px!important
+		padding: 2px 4px
+	.map__img
+		color: #000
+		font-weight: bold
+		margin-right: 120px!important
+		font-size: 19px
+		img
+			width: 94px
+			margin-right: 158px
+	.map__btn
+		width: 120px
+		height: 24px
+		a
+			font-size: 8px
+			line-height: 24px
+
+.footer.footer--main
+	.map__img
+		margin: 15px 0
+		+media-breakpoint-down(md)
+			margin-right: 0!important
+			img
+				display: block!important
+				margin-right: 10px!important
